@@ -8,10 +8,25 @@ export class OwnerService {
 
   http = inject(HttpClient);
 
-  url = 'http://localhost:8080/Technikon/resources/owner/id/1';
+  
 
   getOwners(){
-    
-    return this.http.get(this.url);
+    const url = `http://localhost:8080/Technikon/resources/owner/id/1`;
+    return this.http.get(url);
+  }
+
+  getOwnerById(){
+    const url = `http://localhost:8080/Technikon/resources/owner/id/1`;
+    return this.http.get(url);
+  }
+
+  getOwnerByVat(){
+    const url = `http://localhost:8080/Technikon/resources/owner/vat/12345`;
+    return this.http.get(url);
+  }
+
+  getOwnerByEmail(){
+    const url = `http://localhost:8080/Technikon/resources/owner/email/tade`;
+    return this.http.get(url);
   }
 }
