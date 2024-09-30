@@ -21,12 +21,12 @@ export class OwnerService {
   }
 
   getOwnerByVat(){
-    const url = `http://localhost:8080/Technikon/resources/owner/vat/12345`;
+    const url = `http://localhost:8080/Technikon/resources/owner/vat/1986445697`;
     return this.http.get(url);
   }
 
   getOwnerByEmail(){
-    const url = `http://localhost:8080/Technikon/resources/owner/email/tade`;
+    const url = `http://localhost:8080/Technikon/resources/owner/email/john.doe2@example.com`;
     return this.http.get(url);
   }
 }
