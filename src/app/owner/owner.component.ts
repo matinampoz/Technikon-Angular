@@ -1,4 +1,5 @@
 import { Component, inject , OnInit} from '@angular/core';
+import { FormGroup, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { OwnerService } from '../service/owner.service';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 
@@ -48,23 +49,18 @@ export class OwnerComponent implements OnInit {
 
 
   answer: any;
+  add!: FormGroup;
 
-  //tha allaksei se forma
+ 
   submitData() {
-    const data = {
-      "vatNumber": "1986445697",
-      "name": "John2",
-      "surname": "Doe",
-      "address": "123 Main St, Anytown, USA",
-      "phoneNumber": 1234567890,
-      "email": "john.doe2@example.com",
-      "password": "securepassword",
-      "userType": "OWNER"
-  }
-
-  this.service.addOwner(data).subscribe({
-    next: response => this.answer = response,
-    error: err => console.error(`Something is wrong... ${err}`),
-  });
+    if (this.add.valid) {
+      const data = this.add.getRawValue(); 
+      this.service.addOwner(data).subscribe({
+        next: response => console.log('onwr added successfully', response),
+        error: err => console.error(`something is wrong${err}`),
+      });
+    } else {
+      console.log('Form is invalid');
+    }
   }
 }
