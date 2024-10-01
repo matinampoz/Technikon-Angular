@@ -1,11 +1,11 @@
 import { Component, inject , OnInit} from '@angular/core';
 import { OwnerService } from '../service/owner.service';
-import { JsonPipe } from '@angular/common';
+import { AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-owner',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [AsyncPipe, JsonPipe],
   templateUrl: './owner.component.html',
   styleUrl: './owner.component.css'
 })
@@ -67,5 +67,4 @@ export class OwnerComponent implements OnInit {
     error: err => console.error(`Something is wrong... ${err}`),
   });
   }
-
 }

@@ -1,6 +1,6 @@
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { retry, catchError, throwError } from 'rxjs';
+import { catchError, retry, Observable, throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,21 +27,21 @@ export class OwnerService {
   }
 
   getOwnerByEmail(){
-    const url = `http://localhost:8080/Technikon/resources/owner/email/john.doe2@example.com`;
+    const url = `http://localhost:8080/Technikon/resources/owner/email/john.doe2example.com`;
     return this.http.get(url);
   }
 
-  addOwner(data: any){
-    const url = `http://localhost:8080/Technikon/resources/owner/add`;
+  addOwner(data: any) {
 
     const headers = new HttpHeaders()
-    .set('Content-Type', 'application/json')
-    .set('crossDomain', 'true');
+    .set(`Content-Type`, `application/json`);
 
-    return this.http.post(url, JSON.stringify(data), {headers})
+    const url = `http://localhost:8080/Technikon/resources/owner/add`;
+    return this.http.post(url, JSON.stringify(data), { headers })
     .pipe(
       retry(1),
-      catchError(error => throwError(() => 'something is wrong'))
+      catchError(error => throwError(() => `something went wrong`))
     );
   }
+  
 }
