@@ -28,11 +28,11 @@ export class OwnerComponent implements OnInit {
   //     error: err => console.error(`Something is wrong ${err}`)
   //   });
 
-  //   //getOwnerById
-  //   this.service.getOwnerById().subscribe({
-  //     next: responce => this.ownerById = responce,
-  //     error: err => console.error(`Error fetching by Id ${err}`)
-  //   });
+    //getOwnerById
+    this.service.getOwnerById().subscribe({
+      next: responce => this.ownerById = responce,
+      error: err => console.error(`Error fetching by Id ${err}`)
+    }); //swsto
 
   //    //getOwnerByVat
   //    this.service.getOwnerByVat().subscribe({

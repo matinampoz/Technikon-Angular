@@ -1,7 +1,10 @@
-<div class="container">
-  <app-add-owner-form></app-add-owner-form>
-</div>
+<nav>
+    <ul>
+      <li><a [routerLink]="['home']" routerLinkActive="active">Home</a></li>
+      <li><a [routerLink]="['add']" routerLinkActive="active">Add new owner</a></li>
+      <li><a [routerLink]="['owner/1']" routerLinkActive="active">Show owner with id=1</a></li>
+    </ul>
+  </nav>
+  
 
-<div class="container">
-  <app-owner></app-owner>
-</div>
+<router-outlet></router-outlet>
