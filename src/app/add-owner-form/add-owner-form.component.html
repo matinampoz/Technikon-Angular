@@ -31,3 +31,12 @@
     <button [disabled]="add.invalid">Submit</button>
 </form>
 
+<button (click)="showOwnerById()">Show Owner with ID 1</button>
+
+<div *ngIf="ownerById">
+    <p>Owner ID: {{ ownerById.id }}</p>
+    <p>Name: {{ ownerById.name }}</p>
+    <p>Surname: {{ ownerById.surname }}</p>
+    <p>Address: {{ ownerById.address }}</p>
+    <p>Email: {{ ownerById.email }}</p>
+</div>
