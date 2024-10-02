@@ -16,7 +16,7 @@ export class OwnerService {
     return this.http.get(url);
   }
 
-  getOwnerById(){
+  getOwnerById(ownerId: number){
     const url = 'http://localhost:8080/Technikon/resources/owner/id/1';
     return this.http.get(url);
   }

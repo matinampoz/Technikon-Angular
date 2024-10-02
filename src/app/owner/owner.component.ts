@@ -2,12 +2,13 @@ import { Component, inject , OnInit} from '@angular/core';
 import { FormGroup, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { OwnerService } from '../service/owner.service';
 import { AsyncPipe, JsonPipe } from '@angular/common';
-import { AddOwnerFormComponent } from '../add-owner-form/add-owner-form.component';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-owner',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe, AddOwnerFormComponent],
+  imports: [AsyncPipe, JsonPipe, ReactiveFormsModule, CommonModule],
   templateUrl: './owner.component.html',
   styleUrl: './owner.component.css'
 })
@@ -19,8 +20,12 @@ export class OwnerComponent implements OnInit {
   ownerById: any;
   ownerByVat: any;
   ownerByEmail: any;
+  owners: any[] = [];
+  
 
   ngOnInit():void {
+    this.getOwnerById(1);
+  }
 
   //   //getOwners
   //   this.service.getOwners().subscribe({
@@ -28,11 +33,22 @@ export class OwnerComponent implements OnInit {
   //     error: err => console.error(`Something is wrong ${err}`)
   //   });
 
-    //getOwnerById
-    this.service.getOwnerById().subscribe({
-      next: responce => this.ownerById = responce,
+  getOwnerById(ownerId: number): void {
+    this.service.getOwnerById(ownerId).subscribe({
+      next: response => this.ownerById = response,
       error: err => console.error(`Error fetching by Id ${err}`)
-    }); //swsto
+    });
+  }
+
+    deleteOwner(ownerId: number) {
+      this.service.deleteOwner(ownerId).subscribe({
+        next: response => {
+          console.log('owner deleted successfully', response);
+          this.owners = this.owners.filter(owner => owner.id !== ownerId);
+        },
+        error: err => console.error(`Error deleting owner: ${err}`)
+      });
+    }
 
   //    //getOwnerByVat
   //    this.service.getOwnerByVat().subscribe({
@@ -57,4 +73,3 @@ export class OwnerComponent implements OnInit {
 
   }
 
-}

@@ -8,6 +8,7 @@ export const routes: Routes = [
     {path: 'home', component:HomeComponent},
     {path: 'add', component: AddOwnerFormComponent},
     {path: 'owner/1', component: OwnerComponent},
+    {path: 'owner/propertyOwners', component: OwnerComponent},
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: '**',component: FileNotFoundComponent}
   ];

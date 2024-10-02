@@ -1,3 +1,17 @@
 
 <h1> Owner with id=1 </h1>
-<pre> {{ ownerById | json}} </pre>
+
+<br>
+<div *ngIf="ownerById">
+    <p>Owner ID: {{ ownerById.ownerId }}</p>
+    <p>Name: {{ ownerById.name }}</p>
+    <p>Surname: {{ ownerById.surname }}</p>
+    <p>Address: {{ ownerById.address }}</p>
+    <p>Email: {{ ownerById.email }}</p>
+    <br>
+    <button (click)="deleteOwner(ownerById.ownerId)">Delete Owner</button>  
+</div>
+
+<div *ngIf="!ownerById">
+    <p>No owner data available.</p>
+</div>
