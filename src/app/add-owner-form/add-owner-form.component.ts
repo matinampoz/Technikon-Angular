@@ -16,6 +16,7 @@ export class AddOwnerFormComponent implements OnInit{
   add!: FormGroup;
   fb = inject(FormBuilder);
   ownerById: any;
+  owners: any[] = [];
 
   ngOnInit(): void {
     this.add = this.fb.group({
@@ -48,6 +49,16 @@ export class AddOwnerFormComponent implements OnInit{
         console.log('owner found successfully', response);
       },
       error: err => console.error('error finding owner with ID', err)
+    });
+  }
+
+  deleteOwner(ownerId: number) {
+    this.service.deleteOwner(ownerId).subscribe({
+      next: response => {
+        console.log('owner deleted successfully', response);
+        this.owners = this.owners.filter(owner => owner.id !== ownerId);
+      },
+      error: err => console.error(`Error deleting owner: ${err}`)
     });
   }
 }

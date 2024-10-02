@@ -47,14 +47,14 @@ export class OwnerService {
   }
 
 
-  // deleteOwner(ownerId: number) {
-  //   const url = 'http://localhost:8080/Technikon/resources/owner/delete/${ownerId}';
-  //   return this.http.delete(url)
-  //     .pipe(
-  //       retry(1),
-  //       catchError(error => throwError(() => 'Error deleting owner: ${error}'))
-  //     );
-  // }
+  deleteOwner(ownerId: number) {
+    const url = `http://localhost:8080/Technikon/resources/owner/delete/${ownerId}`;
+    return this.http.delete(url)
+      .pipe(
+        retry(1),
+        catchError(error => throwError(() => 'Error deleting owner: ${error}'))
+      );
+  }
 
 
 
