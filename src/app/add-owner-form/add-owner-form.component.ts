@@ -17,14 +17,13 @@ export class AddOwnerFormComponent implements OnInit{
 
   ngOnInit(): void {
     this.add = this.fb.group({
-      vat:  ['', [Validators.required]],
-      fName:  ['', [Validators.required]],
-      lName:  ['', [Validators.required]],
+      vatNumber:  ['', [Validators.required]],
+      name:  ['', [Validators.required]],
+      surname:  ['', [Validators.required]],
       address:  ['', [Validators.required]],
-      phone:  ['', [Validators.required]],
+      phoneNumber:  ['', [Validators.required]],
       email:  ['', [Validators.required]],
-      password:  ['', [Validators.required]],
-      type:  ['OWNER']
+      password:  ['', [Validators.required]]
 
     })
   }
@@ -33,11 +32,8 @@ export class AddOwnerFormComponent implements OnInit{
 
   addOwner() {
     if (this.add.valid) {
-      const formData = this.add.getRawValue(); 
-      this.service.addOwner(formData).subscribe({
-        next: response => console.log('Owner added successfully', response),
-        error: err => console.error(`something went wrong ${err}`)
-      });
+      console.log(this.add.value);
+      this.service.addOwner(this.add.value)
     } else {
       console.log('Form is invalid');
     }
