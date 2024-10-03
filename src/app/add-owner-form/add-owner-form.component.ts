@@ -36,21 +36,17 @@ export class AddOwnerFormComponent implements OnInit{
   addOwner() {
     if (this.add.valid) {
       console.log(this.add.value);
-      this.service.addOwner(this.add.value)
+      this.service.addOwner(this.add.value).subscribe({
+        next: (response) => {
+          console.log('Owner added successfully:', response);
+        },
+        error: (error) => {
+          console.error('Error adding owner:', error);
+        }
+      });
     } else {
       console.log('Form is invalid');
     }
   }
-
-  // showOwnerById() {
-  //   this.service.getOwnerById().subscribe({
-  //     next: response => {
-  //       this.ownerById = response;
-  //       console.log('owner found successfully', response);
-  //     },
-  //     error: err => console.error('error finding owner with ID', err)
-  //   });
-  // }
-
   
 }

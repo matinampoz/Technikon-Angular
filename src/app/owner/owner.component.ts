@@ -62,13 +62,6 @@ export class OwnerComponent implements OnInit {
   //     error: err => console.error(`Error fetching by Email: ${err}`)
   //   });
   // }
-
-  //   deleteOwner(ownerId: number) {
-  //     this.service.deleteOwner(ownerId).subscribe({
-  //       next: response => console.log('Owner deleted successfully', response),
-  //       error: err => console.error(`Error deleting owner: ${err}`)
-  //     });
-  //   }
   
 
   }
