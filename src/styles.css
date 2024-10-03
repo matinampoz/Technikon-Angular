@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Open Sans', sans-serif; 
+    background-color: #eab9e11c; 
+    color: #333; 
+    margin: 0; 
+    padding: 20px; 
+  }
+  
+  p {
+    font-size: 16px; 
+    line-height: 1.5; 
+    margin-bottom: 16px; 
+  }
+  
+  ul {
+    list-style-type: none; 
+    padding: 0; 
+  }
+  
+  li {
+    font-size: 18px; 
+    padding: 8px 0; 
+    border-bottom: 1px solid #e0e0e0; 
+  }
+  
