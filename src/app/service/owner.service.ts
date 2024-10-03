@@ -61,7 +61,7 @@ export class OwnerService {
     const url = `http://localhost:8080/Technikon/resources/owner/edit/${ownerId}`;
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     console.log(`Sending PUT request to: ${url}`);
-
+    console.log(data);
     return this.http.put(url, JSON.stringify(data), { headers }).pipe(
       catchError(error => throwError(() => 'Error updating owner: ' + error))
     );

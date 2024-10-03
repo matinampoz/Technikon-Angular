@@ -30,8 +30,7 @@ export class EditOwnerFormComponent {
       surname:  ['', [Validators.required]],
       address:  ['', [Validators.required]],
       phoneNumber:  ['', [Validators.required]],
-      email:  ['', [Validators.required]],
-      password:  ['', [Validators.required]]
+      email:  ['', [Validators.required]]
 
     })
   }
