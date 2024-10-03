@@ -1,0 +1,35 @@
+<form [formGroup] = "edit" (ngSubmit)="editOwner()">
+    <div>
+        <input type="text" formControlName="vatNumber" placeholder="Vat Number">
+    </div>
+
+    <div>
+        <input type="text" formControlName="name" placeholder="First Name">
+    </div>
+
+    <div>
+        <input type="text" formControlName="surname" placeholder="Last Name">
+    </div>
+
+    <div>
+        <input type="text" formControlName="address" placeholder="Address">
+    </div>
+
+    <div>
+        <input type="text" formControlName="phoneNumber" placeholder="Phone Number">
+    </div>
+
+    <div>
+        <input type="text" formControlName="email" placeholder="Email">
+    </div>
+
+    <div>
+        <input type="password" formControlName="password" placeholder="Password">
+    </div>
+
+
+    <button [disabled]="edit.invalid">Submit</button>
+</form>
+
+
+

@@ -8,8 +8,14 @@
     <p>Surname: {{ ownerById.surname }}</p>
     <p>Address: {{ ownerById.address }}</p>
     <p>Email: {{ ownerById.email }}</p>
+    <p>Is deleted: {{ ownerById.isDeleted }}</p>
+    <div>
+        <a href="/edit/{{ ownerById.ownerId }}">Edit Owner</a>
+    </div>
     <br>
-    <button (click)="deleteOwner(ownerById.ownerId)">Delete Owner</button>  
+    <div>
+        <button (click)="deleteOwner(ownerById.ownerId)">Delete Owner</button>  
+    </div>
 </div>
 
 <div *ngIf="!ownerById">
