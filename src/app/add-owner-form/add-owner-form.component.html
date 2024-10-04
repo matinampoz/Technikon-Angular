@@ -1,34 +1,63 @@
 <form [formGroup] = "add" (ngSubmit)="addOwner()">
     <div>
         <input type="text" formControlName="vatNumber" placeholder="Vat Number">
+        <div *ngIf="add.get('vatNumber')?.invalid && (add.get('vatNumber')?.touched || add.get('vatNumber')?.dirty)">
+            <small *ngIf="add.get('vatNumber')?.errors?.['required']" class="error-message">The Vat is required.</small>
+          </div>
     </div>
 
     <div>
         <input type="text" formControlName="name" placeholder="First Name">
+        <div *ngIf="add.get('name')?.invalid && (add.get('name')?.touched || add.get('name')?.dirty)">
+            <small *ngIf="add.get('name')?.errors?.['required']" class="error-message">Name  is required.</small>
+          </div>
     </div>
 
     <div>
         <input type="text" formControlName="surname" placeholder="Last Name">
+        <div *ngIf="add.get('surname')?.invalid && (add.get('surname')?.touched || add.get('surname')?.dirty)">
+            <small *ngIf="add.get('surname')?.errors?.['required']" class="error-message">Last name is required.</small>
+          </div>
     </div>
 
     <div>
         <input type="text" formControlName="address" placeholder="Address">
+        <div *ngIf="add.get('address')?.invalid && (add.get('address')?.touched || add.get('address')?.dirty)">
+            <small *ngIf="add.get('address')?.errors?.['required']" class="error-message">Address is required.</small>
+          </div>
     </div>
 
     <div>
         <input type="text" formControlName="phoneNumber" placeholder="Phone Number">
+        <div *ngIf="add.get('phoneNumber')?.invalid && (add.get('phoneNumber')?.touched || add.get('phoneNumber')?.dirty)">
+            <small *ngIf="add.get('phoneNumber')?.errors?.['required']" class="error-message">Phone number is required.</small>
+          </div>
     </div>
 
     <div>
         <input type="text" formControlName="email" placeholder="Email">
+        <div *ngIf="add.get('email')?.invalid && (add.get('email')?.touched || add.get('email')?.dirty)">
+            <small *ngIf="add.get('email')?.errors?.['required']" class="error-message">Email is required.</small>
+          </div>
     </div>
 
     <div>
         <input type="password" formControlName="password" placeholder="Password">
+        <div *ngIf="add.get('password')?.invalid && (add.get('password')?.touched || add.get('password')?.dirty)">
+            <small *ngIf="add.get('password')?.errors?.['required']" class="error-message">Password  is required.</small>
+          </div>
     </div>
 
 
     <button [disabled]="add.invalid">Submit</button>
+    
+    <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+    
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
 </form>
 
 

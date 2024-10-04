@@ -16,6 +16,8 @@ export class AddOwnerFormComponent implements OnInit{
   add!: FormGroup;
   fb = inject(FormBuilder);
   ownerById: any;
+  successMessage: string | null = null;
+  errorMessage: string | null = null;
   
 
   ngOnInit(): void {
@@ -39,13 +41,16 @@ export class AddOwnerFormComponent implements OnInit{
       this.service.addOwner(this.add.value).subscribe({
         next: (response) => {
           console.log('Owner added successfully:', response);
+          this.successMessage = 'Owner added successfully';
         },
         error: (error) => {
           console.error('Error adding owner:', error);
+          this.errorMessage = 'Error adding owner.';
         }
       });
     } else {
       console.log('Form is invalid');
+      this.errorMessage = 'Form is invalid.';
     }
   }
   

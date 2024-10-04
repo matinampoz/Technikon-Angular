@@ -1,5 +1,5 @@
 
-<h1> Owner with id=1 </h1>
+<h3> Owner with id=1 </h3>
 
 <br>
 <div *ngIf="ownerById">
@@ -8,7 +8,6 @@
     <p>Surname: {{ ownerById.surname }}</p>
     <p>Address: {{ ownerById.address }}</p>
     <p>Email: {{ ownerById.email }}</p>
-    <p>Is deleted: {{ ownerById.isDeleted }}</p>
     <div>
         <a href="/edit/{{ ownerById.ownerId }}">Edit Owner</a>
     </div>
